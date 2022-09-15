@@ -1,6 +1,5 @@
 from data import MENU
 from data import resources
-from data import money
 
 
 def total_money():
