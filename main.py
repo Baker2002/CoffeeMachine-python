@@ -14,7 +14,6 @@ def total_money():
 
 def coffee_cost_check(user_input, total):
     if total >= MENU[user_input]["cost"]:
-        total -= MENU[user_input]["cost"]
         return True
     else:
         return False
@@ -27,11 +26,12 @@ def check_coffe_resources(user_input):
                 return True
 
 
-def create_coffe(user_input):
+def create_coffe(user_input, total):
     if check_coffe_resources(user_input):
         resources["water"] -= MENU[user_input]["ingredients"]["water"]
         resources["milk"] -= MENU[user_input]["ingredients"]["milk"]
         resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
+        total -= MENU[user_input]["cost"]
         print(f"Your {user_input} is done\nChange is {total}")
     else:
         print("Not enough resources")
@@ -53,6 +53,6 @@ while user_input != "off":
     else:
         total = total_money()
         if coffee_cost_check(user_input, total):
-            create_coffe(user_input)
+            create_coffe(user_input, total)
         else:
             print("Not enough money")
