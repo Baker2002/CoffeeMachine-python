@@ -13,7 +13,7 @@ def total_money():
 
 
 def coffee_cost_check(user_input, total):
-    if total > MENU[user_input]["cost"]:
+    if total >= MENU[user_input]["cost"]:
         total -= MENU[user_input]["cost"]
         return True
     else:
