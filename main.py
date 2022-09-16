@@ -1,6 +1,5 @@
 from data import MENU
 from data import resources
-from data import money
 
 
 def total_money():
@@ -32,7 +31,7 @@ def create_coffe(user_input, total):
         resources["milk"] -= MENU[user_input]["ingredients"]["milk"]
         resources["coffee"] -= MENU[user_input]["ingredients"]["coffee"]
         total -= MENU[user_input]["cost"]
-        print(f"Your {user_input} is done\nChange is {total}")
+        print(f"Your {user_input} is done\nChange is {round(total, 2)}")
     else:
         print("Not enough resources")
 
@@ -40,8 +39,8 @@ def create_coffe(user_input, total):
 def report():
     print(f'water = {resources["water"]}ml\nmilk = {resources["milk"]}ml\ncoffee = {resources["coffee"]}g')
 
-user_input = ""
 
+user_input = ""
 
 
 while user_input != "off":
